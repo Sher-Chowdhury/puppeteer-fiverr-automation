@@ -2,11 +2,21 @@
 
 const puppeteer = require('puppeteer-extra')
 const {installMouseHelper} = require('./install-mouse-helper');
+const nconf = require('nconf');
 
 
 // add stealth plugin and use defaults (all evasion techniques)
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
+
+nconf.argv()
+    .env()
+    .file({ file: './credentials.json' })
+const username = nconf.get("username")
+const password = nconf.get("password")
+
+
+
 
 // puppeteer usage as normal
 puppeteer.launch({ headless: true }).then(async browser => {
@@ -38,10 +48,8 @@ puppeteer.launch({ headless: true }).then(async browser => {
     await signIn.click()
 
 
-    // const press = await page.$x("//h2[contains(text(),'below')]");
-    // if (press) {
-    //     await press.click();
-    // }
+
+
 
 
 
