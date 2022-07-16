@@ -97,3 +97,14 @@ block on in your start block:
     "test": "mocha \"*/**/*Test.js\""
   },
 ```
+
+Check this start-command works:
+
+```shell
+$ npm start             
+
+> puppeteer-fiverr-automation@1.0.0 start
+> node app.js
+
+hello world
+```
