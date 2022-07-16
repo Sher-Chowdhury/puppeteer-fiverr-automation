@@ -105,3 +105,4 @@ dist
 
 *.png
 package-lock.json
+credentials.json
