@@ -1,0 +1,23 @@
+{
+  "name": "puppeteer-fiverr-automation",
+  "version": "1.0.0",
+  "description": "using:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sher-Chowdhury/puppeteer-fiverr-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sher-Chowdhury/puppeteer-fiverr-automation/issues"
+  },
+  "homepage": "https://github.com/Sher-Chowdhury/puppeteer-fiverr-automation#readme",
+  "dependencies": {
+    "puppeteer": "^15.4.0"
+  }
+}
