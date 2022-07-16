@@ -20,22 +20,17 @@ const password = nconf.get("password")
 
 // puppeteer usage as normal
 puppeteer.launch({ headless: true }).then(async browser => {
-    console.log('Running tests..')
+
     const page = await browser.newPage()
 
-    await installMouseHelper(page);
-
+    await installMouseHelper(page)
 
 
     let response = await page.goto('https://www.fiverr.com/')
 
-
-
     await page.waitForTimeout(5000)
     await page.screenshot({ path: 'testresult1.png', fullPage: false })
-    // await page.mouse.move(135, 173);
-    // await page.mouse.down();
-    // await page.mouse.move(400, 330);
+
     await page.mouse.click(400, 330, {delay: 5000});
 
     const data = await page.evaluate(() => document.querySelector('*').outerHTML);
