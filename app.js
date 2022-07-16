@@ -22,16 +22,20 @@ puppeteer.launch({ headless: true }).then(async browser => {
 
 
     await page.waitForTimeout(5000)
-    await page.screenshot({ path: 'testresult1.png', fullPage: true })
+    await page.screenshot({ path: 'testresult1.png', fullPage: false })
     // await page.mouse.move(135, 173);
     // await page.mouse.down();
     // await page.mouse.move(400, 330);
     await page.mouse.click(400, 330, {delay: 5000});
 
-    // const data = await page.evaluate(() => document.querySelector('*').outerHTML);
-    await page.waitForTimeout(5000)
+    const data = await page.evaluate(() => document.querySelector('*').outerHTML);
+    // await page.waitForTimeout(5000)
 
+    const [acceptBtn] = await page.$x("//button[@id='onetrust-accept-btn-handler']")
+    await acceptBtn.click()
 
+    const [signIn] = await page.$x("//a[@href='/login?source=top_nav']")
+    await signIn.click()
 
 
     // const press = await page.$x("//h2[contains(text(),'below')]");
@@ -43,6 +47,7 @@ puppeteer.launch({ headless: true }).then(async browser => {
 
     // console.log(response)
 
+    await page.waitForTimeout(1000)
 
     await page.screenshot({ path: 'testresult2.png', fullPage: true })
     await browser.close()
